@@ -29,7 +29,7 @@ class Lua <Formula
       s.gsub! "INSTALL_MAN= ${prefix}/man/man1", "INSTALL_MAN= ${prefix}/share/man/man1"
     end
 
-    system "make", "freebsd", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
 
     (lib+"pkgconfig").install 'etc/lua.pc'

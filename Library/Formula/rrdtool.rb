@@ -29,12 +29,12 @@ class Rrdtool <Formula
     which_perl = `/usr/bin/which perl`.chomp
     which_ruby = `/usr/bin/which ruby`.chomp
 
-    opoo "Using system Ruby. RRD module will be installed to /Library/Ruby/..." if which_ruby == "/usr/local/bin/ruby"
+    opoo "Using system Ruby. RRD module will be installed to /Library/Ruby/..." if which_ruby == "/usr/bin/ruby"
     opoo "Using system Perl. RRD module will be installed to /Library/Perl/..." if which_perl == "/usr/bin/perl"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--enable-perl-site-install" if which_perl == "/usr/bin/perl"
-    args << "--enable-ruby-site-install" if which_ruby == "/usr/local/bin/ruby"
+    args << "--enable-ruby-site-install" if which_ruby == "/usr/bin/ruby"
 
     system "./configure", *args
 
